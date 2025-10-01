@@ -45,7 +45,11 @@ namespace AIRBNB.Data
                 .HasForeignKey(m => m.SenderId)
                 .OnDelete(DeleteBehavior.Restrict); // avoid accidental cascade deletion
 
-            modelBuilder.Entity<MessageModel>();
+            modelBuilder.Entity<MessageModel>()
+                .HasOne(m => m.Receiver)
+                .WithMany(u => u.ReceivedMessages)
+                .HasForeignKey(m => m.Receiver)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
 
