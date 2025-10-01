@@ -21,6 +21,10 @@ namespace AIRBNB.Models
         public PropertyModel? Property { get; set; }
 
         [Required]
+        public int? ReservationId { get; set; }
+        public ReservationModel? Reservation { get; set; }
+
+        [Required]
         [MaxLength(2000)]
         public string Content { get; set; } = null;
 

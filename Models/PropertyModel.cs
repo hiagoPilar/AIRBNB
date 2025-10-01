@@ -39,5 +39,9 @@ namespace AIRBNB.Models
         public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
         public ICollection<PhotoModel> Photos { get; set; } = new List<PhotoModel>();
 
+        public ICollection<FavoriteModel> Favorites { get; set; } = new HashSet<FavoriteModel>();
+
+        public ICollection<MessageModel> Messages { get; set; } = new HashSet<MessageModel>();
+
     }
 }

@@ -15,7 +15,7 @@ namespace AIRBNB.Models
 
         [Required]
         public int GuestId { get; set; }
-        public UserModel? User { get; set; }
+        public UserModel? Guest { get; set; }
 
         [Required]
         public DateTime Checkin {  get; set; } = DateTime.Now;
@@ -29,10 +29,13 @@ namespace AIRBNB.Models
         [Required]
         public StatusReservation Status { get; set; } = StatusReservation.Pending;
 
-        public int? PaymentId { get; set; }
         public PaymentModel? Payment { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+
+        //relations
+        public ICollection<MessageModel> Messages { get; set; } = new HashSet<MessageModel>();
 
         
     }

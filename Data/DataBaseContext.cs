@@ -40,6 +40,12 @@ namespace AIRBNB.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MessageModel>()
+                .HasOne(m => m.Property)
+                .WithMany(p => p.Messages)
+                .HasForeignKey(m => m.PropertyId)
+                .OnDelete(DeleteBehavior.SetNull);
+            
+            modelBuilder.Entity<MessageModel>()
                 .HasOne(m => m.Sender)
                 .WithMany(u => u.SentMessages)
                 .HasForeignKey(m => m.SenderId)
@@ -48,8 +54,42 @@ namespace AIRBNB.Data
             modelBuilder.Entity<MessageModel>()
                 .HasOne(m => m.Receiver)
                 .WithMany(u => u.ReceivedMessages)
-                .HasForeignKey(m => m.Receiver)
+                .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MessageModel>()
+                .HasOne(m => m.Reservation)
+                .WithMany(r => r.Messages)
+                .HasForeignKey(m => m.ReservationId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<ReservationModel>()
+                .HasOne(r => r.Payment)
+                .WithOne(p => p.Reservation)
+                .HasForeignKey<PaymentModel>(p => p.ReservationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ReservationModel>()
+                .HasOne(m => m.Guest)
+                .WithMany(p => p.Reservations)
+                .HasForeignKey(p => p.GuestId)
+                .OnDelete(DeleteBehavior.Restrict); //not delete reservations if the user is removed
+
+            modelBuilder.Entity<FavoriteModel>()
+                .HasKey(f => new { f.GuestId, f.PropertyId }); 
+
+            modelBuilder.Entity<FavoriteModel>()
+                .HasOne(f => f.Property)
+                .WithMany(p => p.Favorites)
+                .HasForeignKey(f => f.PropertyId);
+
+            modelBuilder.Entity<FavoriteModel>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Favorites)
+                .HasForeignKey(f => f.GuestId);
+
+
+
 
         }
 
