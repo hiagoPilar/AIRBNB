@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AIRBNB.Enum;
+using System.ComponentModel.DataAnnotations;
 
 namespace AIRBNB.Models
 {
@@ -18,10 +19,13 @@ namespace AIRBNB.Models
 
         [Required]
         [MaxLength(300)]
-        public string Location { get; set; }
+        public string Location { get; set; } = null;
 
         [Required]
         public decimal PricePerNight { get; set; }
+
+        [Required]
+        public PropertyType PropertyType { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
