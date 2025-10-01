@@ -1,9 +1,12 @@
-﻿namespace AIRBNB.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AIRBNB.Models
 {
     public class PropertyAmenityModel
     {
 
         //composite key will be set in the DataBaseContext via FLuentAPI
+        
         public int PropertyId { get; set; }
         public PropertyModel? Property { get; set; }
         

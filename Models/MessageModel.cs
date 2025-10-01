@@ -16,11 +16,11 @@ namespace AIRBNB.Models
         public int ReceiverId { get; set; } // FK for who received the message
         public UserModel? Receiver { get; set; }
 
-        [Required]
+        
         public int? PropertyId { get; set; } //FK optional for property
         public PropertyModel? Property { get; set; }
 
-        [Required]
+        
         public int? ReservationId { get; set; }
         public ReservationModel? Reservation { get; set; }
 

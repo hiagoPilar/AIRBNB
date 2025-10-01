@@ -61,7 +61,7 @@ namespace AIRBNB.Data
                 .HasOne(m => m.Reservation)
                 .WithMany(r => r.Messages)
                 .HasForeignKey(m => m.ReservationId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ReservationModel>()
                 .HasOne(r => r.Payment)
@@ -76,17 +76,23 @@ namespace AIRBNB.Data
                 .OnDelete(DeleteBehavior.Restrict); //not delete reservations if the user is removed
 
             modelBuilder.Entity<FavoriteModel>()
-                .HasKey(f => new { f.GuestId, f.PropertyId }); 
+                .HasKey(f => new { f.GuestId, f.PropertyId });
 
             modelBuilder.Entity<FavoriteModel>()
                 .HasOne(f => f.Property)
                 .WithMany(p => p.Favorites)
-                .HasForeignKey(f => f.PropertyId);
+                .HasForeignKey(f => f.PropertyId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             modelBuilder.Entity<FavoriteModel>()
                 .HasOne(f => f.User)
                 .WithMany(u => u.Favorites)
-                .HasForeignKey(f => f.GuestId);
+                .HasForeignKey(f => f.GuestId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PropertyAmenityModel>()
+                .HasKey(pa => new { pa.PropertyId, pa.AmenityId });
 
 
 

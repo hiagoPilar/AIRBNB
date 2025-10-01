@@ -49,5 +49,5 @@ namespace AIRBNB.Models
     }
         
         
-    }
+    
 }
