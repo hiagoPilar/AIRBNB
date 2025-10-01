@@ -10,16 +10,17 @@ namespace AIRBNB.Models
 
         [Required]
         public int HostId { get; set; }
+        public UserModel? Host { get; set; }
 
         [Required]
         [MaxLength(200)]
-        public string Title { get; set; } = null;
+        public string Title { get; set; } = string.Empty;
 
         public string? Description { get; set; }
 
         [Required]
         [MaxLength(300)]
-        public string Location { get; set; } = null;
+        public string Location { get; set; } = string.Empty;
 
         [Required]
         public decimal PricePerNight { get; set; }
@@ -27,9 +28,16 @@ namespace AIRBNB.Models
         [Required]
         public PropertyType PropertyType { get; set; }
 
+        public PoolModel? Pool { get; set; }
+        public GarageModel? Garage { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
 
         //Relations
+        public ICollection<ReservationModel> Reservations {  get; set; } = new List<ReservationModel>();
+        public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
+        public ICollection<PhotoModel> Photos { get; set; } = new List<PhotoModel>();
+
     }
 }

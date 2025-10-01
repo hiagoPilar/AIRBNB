@@ -30,6 +30,25 @@ namespace AIRBNB.Data
 
         public DbSet<MessageModel> Messages { get; set; }
 
+        public DbSet<NotificationModel> Notifications { get; set; }
+
+        public DbSet<PoolModel> Pools { get; set; }
+
+        public DbSet<GarageModel> Garages { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MessageModel>()
+                .HasOne(m => m.Sender)
+                .WithMany(u => u.SentMessages)
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict); // avoid accidental cascade deletion
+
+            modelBuilder.Entity<MessageModel>();
+
+        }
+
        
     }
 }

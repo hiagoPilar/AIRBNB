@@ -39,6 +39,10 @@ namespace AIRBNB.Models
 
 
         //Relations
+        public ICollection<NotificationModel> Notifications { get; set; } = new List<NotificationModel>();
+        public ICollection<ReservationModel> Reservations { get; set; } = new List<ReservationModel>();
+        public ICollection<MessageModel> SentMessages { get; set; } = new HashSet<MessageModel>();
+        public ICollection<MessageModel> ReceivedMessages { get; set; } = new HashSet<MessageModel>();
         
         
     }
