@@ -1,5 +1,6 @@
 using AIRBNB.Data;
 using AIRBNB.Repositories;
+using AIRBNB.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace AIRBNB
@@ -18,6 +19,7 @@ namespace AIRBNB
                 builder.Configuration.GetConnectionString("DataBase")));
 
             builder.Services.AddScoped<InterfaceUserRole, UserRoleRepository>();
+            builder.Services.AddScoped<AuthService>();
 
 
 

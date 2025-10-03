@@ -1,4 +1,34 @@
-﻿@page
-@model AIRBNB.Views.Account.RegisterModel
-@{
+﻿@using AIRBNB.Models.DTOs.Users
+
+@model UserRegisterDto
+
+<h2>Register</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
 }
+
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label>Username</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+
+    <div class="form-control">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control"/>
+    </div>
+
+    <div class="form-control">
+        <label>Password</label>
+        <input asp-for="Password" type="password" class="form-control"/>
+    </div>
+
+    <button type="submit" class="btn btn-success">Register</button>
+
+</form>
+
+<p>
+    Do you already registered? <a asp-action="Login">Login here</a>
+</p>
