@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class AmenityModel
     {
@@ -9,7 +9,7 @@ namespace AIRBNB.Models
 
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; } = null;
+        public string Name { get; set; } = string.Empty;
 
 
         //Relations

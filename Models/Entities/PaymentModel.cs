@@ -1,7 +1,7 @@
 ﻿using AIRBNB.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class PaymentModel
     {

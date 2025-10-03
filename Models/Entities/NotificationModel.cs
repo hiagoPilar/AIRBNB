@@ -1,7 +1,7 @@
 ﻿using AIRBNB.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class NotificationModel
     {
@@ -17,7 +17,7 @@ namespace AIRBNB.Models
 
         [Required]
         [MaxLength(300)]
-        public string Message { get; set; } = null;
+        public string Message { get; set; } = string.Empty;
 
         public bool IsRead { get; set; } = false; //if it has already been read
 

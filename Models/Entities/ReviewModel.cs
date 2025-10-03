@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class ReviewModel
     {

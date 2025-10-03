@@ -1,4 +1,4 @@
-﻿using AIRBNB.Models;
+﻿using AIRBNB.Models.Entities;
 
 namespace AIRBNB.Repositories
 {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class ReservationModel
     {

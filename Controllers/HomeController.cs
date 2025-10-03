@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using AIRBNB.Models;
+using AIRBNB.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIRBNB.Controllers

@@ -1,7 +1,7 @@
 ﻿using AIRBNB.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class MessageModel
     {
@@ -26,7 +26,7 @@ namespace AIRBNB.Models
 
         [Required]
         [MaxLength(2000)]
-        public string Content { get; set; } = null;
+        public string Content { get; set; } = string.Empty;
 
         [Required]
         public MessageStatus Status { get; set; } = MessageStatus.Sent;

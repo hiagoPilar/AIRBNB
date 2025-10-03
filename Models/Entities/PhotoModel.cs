@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 
-namespace AIRBNB.Models
+namespace AIRBNB.Models.Entities
 {
     public class PhotoModel
     {
@@ -16,10 +16,11 @@ namespace AIRBNB.Models
         [Required]
         [MaxLength(500)]
         [Url]
-        public string Url { get; set; } = null;
+        public string Url { get; set; } = string.Empty;
 
-        [MaxLength(200)]
-        public string Description { get; set; }
+
+        [Required, MaxLength(200)]
+        public string Description { get; set; } 
 
         public bool IsCover { get; set; } //select if the first photo
     }
