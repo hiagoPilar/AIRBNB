@@ -1,4 +1,5 @@
 using AIRBNB.Data;
+using AIRBNB.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace AIRBNB
@@ -16,7 +17,14 @@ namespace AIRBNB
                 options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DataBase")));
 
+            builder.Services.AddScoped<InterfaceUserRole, UserRoleRepository>();
+
+
+
             var app = builder.Build();
+
+
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
