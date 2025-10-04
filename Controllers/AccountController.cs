@@ -59,7 +59,9 @@ namespace AIRBNB.Controllers
             {
                 UserName = dto.Username,
                 Email = dto.Email,
-                PasswordHash = _authService.HashPassword(dto.Password)
+                PasswordHash = _authService.HashPassword(dto.Password),
+                FirstName = dto.FirstName,
+                LastName = dto.LastName
             };
 
             _context.Users.Add(user);
